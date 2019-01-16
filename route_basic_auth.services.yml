@@ -1,0 +1,25 @@
+services:
+  route_basic_auth.config_manager:
+    class: Drupal\route_basic_auth\Config\ConfigManager
+    arguments: ['@config.factory']
+
+  route_basic_auth.route_helper:
+    class: Drupal\route_basic_auth\Routing\RouteHelper
+
+  route_basic_auth.route_subscriber:
+    class: Drupal\route_basic_auth\EventSubscriber\RouteSubscriber
+    arguments: ['@route_basic_auth.config_manager']
+    tags:
+      - { name: event_subscriber }
+
+  route_basic_auth.response_subscriber:
+    class: Drupal\route_basic_auth\EventSubscriber\ResponseSubscriber
+    arguments: ['@route_basic_auth.config_manager', '@route_basic_auth.route_helper']
+    tags:
+      - { name: event_subscriber }
+
+  route_basic_auth.access_check:
+    class: Drupal\route_basic_auth\Access\BasicAuthAccessCheck
+    arguments: ['@request_stack', '@route_basic_auth.config_manager', '@route_basic_auth.route_helper']
+    tags:
+      - { name: access_check, applies_to: _route_basic_auth__access_check }
