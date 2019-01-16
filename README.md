@@ -1,7 +1,7 @@
 INTRODUCTION
 ------------
 
-The Route Basic Authentication module protects configured routes with HTTP basic authentication. The routes are configured with the Drupal route name, for example the login: "user.login". The HTTP methods  (GET, POST, PUT, DELETE, ...) that should be protected by HTTP basic authentication are also configured for each route. A site wide username and password is used, configurable on the settings page (Administration » Configuration » System » Route Basic Authentication settings).
+The Route Basic Authentication module protects configured routes with HTTP basic authentication. The routes are configured with the Drupal route name (described as **machine name** in the [structure of routes documentation](https://www.drupal.org/docs/8/api/routing-system/structure-of-routes)), for example the login: "user.login". The HTTP methods  (GET, POST, PUT, DELETE, ...) that should be protected by HTTP basic authentication are also configured for each route. A site wide username and password is used, configurable on the settings page (Administration » Configuration » System » Route Basic Authentication settings).
 
  * For a full description of the module, visit the project page:
    https://www.drupal.org/project/route_basic_auth
