@@ -22,9 +22,8 @@ class SettingsForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
     $form['credentials'] = [
-      '#type' => 'details',
+      '#type' => 'fieldset',
       '#title' => $this->t('HTTP basic authentication credentials'),
-      '#open' => TRUE,
     ];
 
     $form['credentials']['username'] = [
