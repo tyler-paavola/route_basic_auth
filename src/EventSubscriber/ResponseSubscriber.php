@@ -3,7 +3,6 @@
 namespace Drupal\route_basic_auth\EventSubscriber;
 
 use Drupal\Core\Access\AccessResultForbidden;
-use Drupal\Core\Url;
 use Drupal\route_basic_auth\Config\ConfigManager;
 use Drupal\route_basic_auth\Routing\RouteHelper;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
