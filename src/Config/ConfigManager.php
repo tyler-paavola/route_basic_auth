@@ -72,17 +72,22 @@ class ConfigManager {
   /**
    * Gets the information of the route with given name that should be protected.
    *
-   * @return \Drupal\route_basic_auth\Config\ProtectedRouteConfig
+   * @return \Drupal\route_basic_auth\Config\ProtectedRouteConfig|null
    *   Protected route configuration.
+   *   NULL if no route that should be protected with given name was found.
    */
   public function getProtectedRoute($name) {
+    $matchingProtectedRoute = NULL;
     $protectedRoutes = $this->getProtectedRoutes();
 
     foreach ($protectedRoutes as $protectedRoute) {
       if ($protectedRoute->getName() === $name) {
-        return $protectedRoute;
+        $matchingProtectedRoute = $protectedRoute;
+        break;
       }
     }
+
+    return $matchingProtectedRoute;
   }
 
   /**

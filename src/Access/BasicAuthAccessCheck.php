@@ -5,6 +5,7 @@ namespace Drupal\route_basic_auth\Access;
 use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Routing\Access\AccessInterface;
 use Drupal\route_basic_auth\Config\ConfigManager;
+use Drupal\route_basic_auth\Config\ProtectedRouteConfig;
 use Drupal\route_basic_auth\Routing\RouteHelper;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -63,19 +64,27 @@ class BasicAuthAccessCheck implements AccessInterface {
       return AccessResult::allowed();
     }
 
-    /* Skip checking of basic auth credentials if current request method should not be protected. */
-    if (!$this->configManager->getProtectedRoute($routeName)->shouldMethodBeProtected($this->request->getMethod())) {
-      return AccessResult::allowed();
-    }
+    /* Do not run access checks if the current route should not be protected */
+    $protectedRoute = $this->configManager->getProtectedRoute($routeName);
+    if ($protectedRoute instanceof  ProtectedRouteConfig) {
+      /* Skip checking of basic auth credentials if current request method should not be protected. */
+      if (!$protectedRoute->shouldMethodBeProtected($this->request->getMethod())) {
+        return AccessResult::allowed();
+      }
 
-    $basicAuthCredentialsValid = $this->checkIfBasicAuthCredentialsAreValid($this->request);
+      $basicAuthCredentialsValid = $this->checkIfBasicAuthCredentialsAreValid($this->request);
 
-    if ($basicAuthCredentialsValid) {
-      return AccessResult::allowed();
+      if ($basicAuthCredentialsValid) {
+        return AccessResult::allowed();
+      }
+      else {
+        return AccessResult::forbidden();
+      }
     }
     else {
-      return AccessResult::forbidden();
+      return AccessResult::allowed();
     }
+
   }
 
   /**
