@@ -44,14 +44,14 @@ class ResponseSubscriber implements EventSubscriberInterface {
   }
 
   /**
-   * Use a high priority to ensure this is executed last.
+   * Use a low priority to ensure this is executed last.
    *
    * @return array
    *   The events to subscribe to.
    */
   public static function getSubscribedEvents() {
     return [
-      KernelEvents::RESPONSE => ['onResponseEvent', 1000],
+      KernelEvents::RESPONSE => ['onResponseEvent', -1000],
     ];
   }
 
