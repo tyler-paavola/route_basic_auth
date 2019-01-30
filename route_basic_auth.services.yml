@@ -14,7 +14,7 @@ services:
 
   route_basic_auth.response_subscriber:
     class: Drupal\route_basic_auth\EventSubscriber\ResponseSubscriber
-    arguments: ['@route_basic_auth.config_manager', '@route_basic_auth.route_helper']
+    arguments: ['@route_basic_auth.config_manager', '@config.factory', '@route_basic_auth.route_helper', '@flood', '@request_stack']
     tags:
       - { name: event_subscriber }
 

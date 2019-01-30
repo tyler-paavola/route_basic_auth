@@ -40,6 +40,18 @@ class SettingsForm extends FormBase {
       '#required' => TRUE,
     ];
 
+    $form['flood_protection'] = [
+      '#type' => 'fieldset',
+      '#title' => $this->t('Flood protection'),
+    ];
+
+    $form['flood_protection']['flood_protection_enabled'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Enable flood protection'),
+      '#default_value' => $this->config('route_basic_auth.settings')->get('flood_protection_enabled'),
+      '#description' => $this->t('The login attempts allowed by a single IP address will be limited to 50 per hour if enabled.'),
+    ];
+
     $form['actions'] = ['#type' => 'actions'];
     $form['actions']['submit'] = [
       '#type' => 'submit',
@@ -58,6 +70,8 @@ class SettingsForm extends FormBase {
 
     $editableConfig->set('credentials.username', $form_state->getValue('username'))->save();
     $editableConfig->set('credentials.password', $form_state->getValue('password'))->save();
+
+    $editableConfig->set('flood_protection_enabled', $form_state->getValue('flood_protection_enabled'))->save();
   }
 
 }

@@ -120,4 +120,16 @@ class ConfigManager {
     return in_array($routeName, $this->getProtectedRouteNames());
   }
 
+  /**
+   * Checks if the flood protections is configured as enabled.
+   *
+   * @return bool
+   *   TRUE if flood protection is enabled.
+   */
+  public function isFloodProtectionEnabled() {
+    $configValue = $this->config->get('flood_protection_enabled');
+
+    return boolval($configValue);
+  }
+
 }

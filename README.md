@@ -33,6 +33,8 @@ CONFIGURATION
 
  * Configure username and password on the settings page or *route_basic_auth.settings.yml* configuration file.
  
+ * Configure whether or not flood protection should be enabled on the settings page or *route_basic_auth.settings.yml* configuration file.
+ 
  * Configure the routes that should be protected with HTTP basic authentication in the *route_basic_auth.settings.yml* configuration file (Currently not editable in the UI).
  
     - Use the following format:
