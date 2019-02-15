@@ -2,7 +2,8 @@
     "name": "drupal/route_basic_auth",
     "description": "Adds HTTP basic authentication to configured routes.",
     "type": "drupal-module",
-    "license": "GPL-2.0+",
+    "homepage": "https://drupal.org/project/route_basic_auth",
+    "license": "GPL-2.0-or-later",
     "keywords": ["Drupal", "HTTP basic authentication"],
     "authors": [
         {
