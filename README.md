@@ -1,7 +1,18 @@
 INTRODUCTION
 ------------
 
-The Route Basic Authentication module protects configured routes with HTTP basic authentication. The routes are configured with the Drupal route name (described as **machine name** in the [structure of routes documentation](https://www.drupal.org/docs/8/api/routing-system/structure-of-routes)), for example the login: **user.login**. The HTTP methods  (GET, POST, PUT, DELETE, ...) that should be protected by HTTP basic authentication are also configured for each route. A site wide username and password is used, configurable on the settings page (Administration » Configuration » System » Route Basic Authentication settings).
+The Route Basic Authentication module protects configured routes with
+HTTP basic authentication.
+The routes are configured with the Drupal route name
+(described as **machine name** in the
+[documentation](https://www.drupal.org/docs/8/api/routing-system/structure-of-routes)),
+for example the login: **user.login**.
+The HTTP methods  (GET, POST, PUT, DELETE, ...)
+that should be protected by HTTP basic authentication
+are also configured for each route. 
+A site wide username and password is used,
+configurable on the settings page
+(Administration » Configuration » System » Route Basic Authentication settings).
 
  * For a full description of the module, visit the project page:
    https://www.drupal.org/project/route_basic_auth
@@ -31,11 +42,15 @@ CONFIGURATION
 
      Permission to change the module settings.
 
- * Configure username and password on the settings page or *route_basic_auth.settings.yml* configuration file.
+ * Configure username and password on the settings page or
+ *route_basic_auth.settings.yml* configuration file.
  
- * Configure whether or not flood protection should be enabled on the settings page or *route_basic_auth.settings.yml* configuration file.
+ * Configure whether or not flood protection should be enabled
+ on the settings page or *route_basic_auth.settings.yml* configuration file.
  
- * Configure the routes that should be protected with HTTP basic authentication in the *route_basic_auth.settings.yml* configuration file (Currently not editable in the UI).
+ * Configure the routes that should be protected with
+ HTTP basic authentication in the*route_basic_auth.settings.yml*
+ configuration file (Currently not editable in the UI).
  
     - Use the following format:
     ```yaml
@@ -61,4 +76,10 @@ MAINTAINERS
 
  * **Namics** - Initial development
  
-   Namics is one of the leading providers of e-business and digital brand communication services in the German-speaking region. The full-service agency helps companies transform business models with top-quality interdisciplinary solutions, promising increased, measurable success for their clients. Visit https://www.namics.com/en for more information.
+   Namics is one of the leading providers
+   of e-business and digital brand communication services
+   in the German-speaking region.
+   The full-service agency helps companies transform business models
+   with top-quality interdisciplinary solutions, promising increased,
+   measurable success for their clients.
+   Visit https://www.namics.com/en for more information.
