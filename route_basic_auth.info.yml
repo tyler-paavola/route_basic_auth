@@ -3,6 +3,7 @@ description: 'Adds HTTP basic authentication to configured routes.'
 
 type: module
 core: 8.x
+core_version_requirement: ^8 || ^9
 package: 'Authentication'
 
 configure: route_basic_auth.settings
